@@ -23,15 +23,15 @@ function query($query)
 function tambah($data)
 {
   $conn = koneksi();
-  $nama = $data['nama'];
-  $nim = $data['nim'];
-  $email = $data['email'];
-  $jurusan = $data['jurusan'];
-  $gambar = $data['gambar'];
+  $nama = htmlspecialchars($data['nama']); // htmlspecialchars  utk cek <> inputan user
+  $nim = htmlspecialchars($data['nim']);
+  $email = htmlspecialchars($data['email']);
+  $jurusan = htmlspecialchars($data['jurusan']);
+  $gambar = htmlspecialchars($data['gambar']);
 
   $query = "INSERT INTO
             siswa VALUE
-            (null, '$nama', '$nim', '$email','$jurusan', '$gambar');
+            (null,'$nama', '$nim', '$email','$jurusan', '$gambar');
             ";
   mysqli_query($conn, $query);
   echo mysqli_error($conn);

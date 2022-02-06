@@ -4,7 +4,10 @@ require 'function.php';
 if (isset($_POST['tambah'])) {
   // kalau uda klick tombol tambah, ambil semua data post kirimkan ke sebuah function tambah
   if (tambah($_POST) > 0) {
-    echo "Data berhasil ditambah!";
+    echo "<script>
+            alert ('Data Berhasil Ditambahkan!');
+            document.location.href='latihan3.php';
+          </script>";
   } else {
     echo "Data gagal ditambahkan!";
   }
@@ -22,6 +25,7 @@ if (isset($_POST['tambah'])) {
 
 <body>
   <h3>Tambah data Mahasiswa</h3>
+  <a href="latihan3.php">Batal Tambah</a>
   <form action="" method="POST">
     <ul>
       <li>
